@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "studio@basilisk.ch"
+        name: "Radio Basilisk"
+        url: "https://www.basilisk.ch/"
+      }
+      description: "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region. This API shows the last played songs on Radio Basilisk."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.basilisk.ch/api"
+        }
+      ]
+      title: "Radio Basilisk API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

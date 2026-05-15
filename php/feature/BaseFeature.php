@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// RadioBasilisk SDK base feature
+
+class RadioBasiliskBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(RadioBasiliskContext $ctx, array $options): void {}
+    public function PostConstruct(RadioBasiliskContext $ctx): void {}
+    public function PostConstructEntity(RadioBasiliskContext $ctx): void {}
+    public function SetData(RadioBasiliskContext $ctx): void {}
+    public function GetData(RadioBasiliskContext $ctx): void {}
+    public function GetMatch(RadioBasiliskContext $ctx): void {}
+    public function SetMatch(RadioBasiliskContext $ctx): void {}
+    public function PrePoint(RadioBasiliskContext $ctx): void {}
+    public function PreSpec(RadioBasiliskContext $ctx): void {}
+    public function PreRequest(RadioBasiliskContext $ctx): void {}
+    public function PreResponse(RadioBasiliskContext $ctx): void {}
+    public function PreResult(RadioBasiliskContext $ctx): void {}
+    public function PreDone(RadioBasiliskContext $ctx): void {}
+    public function PreUnexpected(RadioBasiliskContext $ctx): void {}
+}

@@ -1,0 +1,90 @@
+# Entity: music
+
+main: kit: entity: music: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "album"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "artist"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "cover_image"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "duration"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "played_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "music"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 10
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/songs/recently-played"
+          parts: [
+            "songs"
+            "recently-played"
+          ]
+          select: {
+            exist: [
+              "limit"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

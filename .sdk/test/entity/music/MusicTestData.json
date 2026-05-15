@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "music": {
+      "MUSIC00": {
+        "album": "s46",
+        "artist": "s47",
+        "cover_image": "s48",
+        "duration": "s49",
+        "id": "MUSIC00",
+        "played_at": "s4b",
+        "title": "s4c"
+      },
+      "MUSIC01": {
+        "album": "s8c",
+        "artist": "s8d",
+        "cover_image": "s8e",
+        "duration": "s8f",
+        "id": "MUSIC01",
+        "played_at": "s91",
+        "title": "s92"
+      },
+      "MUSIC02": {
+        "album": "sd2",
+        "artist": "sd3",
+        "cover_image": "sd4",
+        "duration": "sd5",
+        "id": "MUSIC02",
+        "played_at": "sd7",
+        "title": "sd8"
+      }
+    }
+  },
+  "new": {
+    "music": {
+      "music_ref01": {
+        "album": "s118",
+        "artist": "s119",
+        "cover_image": "s11a",
+        "duration": "s11b",
+        "played_at": "s11d",
+        "title": "s11e"
+      }
+    }
+  }
+}

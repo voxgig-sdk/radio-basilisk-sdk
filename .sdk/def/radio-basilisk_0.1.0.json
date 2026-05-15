@@ -1,0 +1,184 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Radio Basilisk API",
+    "description": "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region. This API shows the last played songs on Radio Basilisk.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Radio Basilisk",
+      "url": "https://www.basilisk.ch/",
+      "email": "studio@basilisk.ch"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.basilisk.ch/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/songs/recently-played": {
+      "get": {
+        "summary": "Get recently played songs",
+        "description": "Returns a list of the most recently played songs on Radio Basilisk",
+        "operationId": "getRecentlyPlayedSongs",
+        "tags": [
+          "Music"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of songs to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "songs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Song"
+                      }
+                    },
+                    "count": {
+                      "type": "integer",
+                      "description": "Number of songs returned"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp of the response"
+                    }
+                  }
+                },
+                "examples": {
+                  "recentSongs": {
+                    "value": {
+                      "songs": [
+                        {
+                          "id": "12345",
+                          "title": "Example Song",
+                          "artist": "Example Artist",
+                          "album": "Example Album",
+                          "playedAt": "2026-01-15T10:30:00Z",
+                          "duration": 210,
+                          "coverImage": "https://example.com/cover.jpg"
+                        }
+                      ],
+                      "count": 1,
+                      "timestamp": "2026-01-15T10:35:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Song": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the song"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the song"
+          },
+          "artist": {
+            "type": "string",
+            "description": "Artist name"
+          },
+          "album": {
+            "type": "string",
+            "description": "Album name"
+          },
+          "playedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the song was played"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of the song in seconds"
+          },
+          "coverImage": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the album cover image"
+          }
+        },
+        "required": [
+          "title",
+          "artist",
+          "playedAt"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the error"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Music",
+      "description": "Operations related to music and playlist information"
+    }
+  ]
+}
