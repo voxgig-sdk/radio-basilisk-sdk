@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/radio-basilisk-sdk"
-	"github.com/voxgig-sdk/radio-basilisk-sdk/core"
+	sdk "github.com/voxgig-sdk/radio-basilisk-sdk/go"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/radio-basilisk-sdk/go/utility/struct"
 )
 
 func TestMusicEntity(t *testing.T) {

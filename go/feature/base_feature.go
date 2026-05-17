@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/radio-basilisk-sdk/core"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/core"
 )
 
 type BaseFeature struct {

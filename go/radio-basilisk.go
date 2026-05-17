@@ -1,10 +1,10 @@
 package voxgigradiobasilisksdk
 
 import (
-	"github.com/voxgig-sdk/radio-basilisk-sdk/core"
-	"github.com/voxgig-sdk/radio-basilisk-sdk/entity"
-	"github.com/voxgig-sdk/radio-basilisk-sdk/feature"
-	_ "github.com/voxgig-sdk/radio-basilisk-sdk/utility"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/core"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/entity"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/feature"
+	_ "github.com/voxgig-sdk/radio-basilisk-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

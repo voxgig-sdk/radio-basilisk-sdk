@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/radio-basilisk-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/radio-basilisk-sdk/core"
+	"github.com/voxgig-sdk/radio-basilisk-sdk/go/core"
 )
 
 const headerAuth = "authorization"

@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/radio-basilisk-sdk"
+	sdk "github.com/voxgig-sdk/radio-basilisk-sdk/go"
 )
 
 func TestExists(t *testing.T) {
