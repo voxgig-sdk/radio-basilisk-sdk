@@ -18,8 +18,20 @@ main: {
       ]
       title: "Radio Basilisk API"
       version: "1.0.0"
+      tagline: "Fetch the recently played tracks from Basel's Radio Basilisk station"
+      homepage: "https://www.basilisk.ch/"
+      docs_url: "https://freepublicapis.com/radio-basilisk"
+      about_md: `[Radio Basilisk](https://www.basilisk.ch/) is a regional broadcaster based at Marktplatz 5 in Basel, Switzerland, reaching around 100,000 daily listeners. This SDK wraps the station's public track-history endpoint, which is served via the [Radiosphere](https://radiosphere.io/) platform that powers the station's digital infrastructure.
+
+What you get from the API:
+
+- A live feed of recently played songs for Radio Basilisk's channel.
+
+Operational notes: the upstream endpoint is hosted at \`radio-basilisk.api.radiosphere.io\` under a fixed channel UUID. No authentication is documented, and the freepublicapis.com catalogue notes that CORS is disabled, so browser-side calls may need a proxy.`
+      entity_desc: {
+        music: "Recently played tracks on Radio Basilisk, exposed by the upstream channel `track-history` endpoint."
+      }
+      auth: false
     }
   }
-}
-
 }

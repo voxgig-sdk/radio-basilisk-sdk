@@ -92,7 +92,6 @@ def _music_basic_setup(extra):
         "RADIOBASILISK_TEST_MUSIC_ENTID": idmap,
         "RADIOBASILISK_TEST_LIVE": "FALSE",
         "RADIOBASILISK_TEST_EXPLAIN": "FALSE",
-        "RADIOBASILISK_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _music_basic_setup(extra):
     if env.get("RADIOBASILISK_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("RADIOBASILISK_APIKEY"),
             },
             extra or {},
         ])

@@ -62,14 +62,12 @@ def music_direct_setup(mockres)
   env = Runner.env_override({
     "RADIOBASILISK_TEST_MUSIC_ENTID" => {},
     "RADIOBASILISK_TEST_LIVE" => "FALSE",
-    "RADIOBASILISK_APIKEY" => "NONE",
   })
 
   live = env["RADIOBASILISK_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["RADIOBASILISK_APIKEY"],
     }
     client = RadioBasiliskSDK.new(merged_opts)
     return {

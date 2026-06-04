@@ -15,9 +15,6 @@ module RadioBasiliskConfig
       },
       "options" => {
         "base" => "https://www.basilisk.ch/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
