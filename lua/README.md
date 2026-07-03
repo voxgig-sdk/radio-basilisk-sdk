@@ -10,7 +10,7 @@ The Lua SDK for the RadioBasilisk API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install radio-basilisk-sdk
+luarocks install voxgig-sdk-radio-basilisk
 ```
 
 If the module is not yet published, add the source directory to

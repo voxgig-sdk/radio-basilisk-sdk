@@ -10,7 +10,7 @@ The TypeScript SDK for the RadioBasilisk API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install radio-basilisk
+npm install @voxgig-sdk/radio-basilisk
 ```
 ## Tutorial: your first API call
 

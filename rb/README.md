@@ -10,13 +10,13 @@ The Ruby SDK for the RadioBasilisk API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install radio-basilisk-sdk
+gem install voxgig-sdk-radio-basilisk
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "radio-basilisk-sdk"
+gem "voxgig-sdk-radio-basilisk"
 ```
 
 Then run:

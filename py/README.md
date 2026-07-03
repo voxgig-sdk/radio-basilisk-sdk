@@ -10,7 +10,7 @@ The Python SDK for the RadioBasilisk API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install radio-basilisk-sdk
+pip install voxgig-sdk-radio-basilisk
 ```
 
 Or install from source:

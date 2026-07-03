@@ -10,7 +10,7 @@ The PHP SDK for the RadioBasilisk API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/radio-basilisk-sdk
+composer require voxgig-sdk/radio-basilisk
 ```
 
 

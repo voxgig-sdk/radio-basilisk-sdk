@@ -8,12 +8,14 @@ source = {
   dir = "radio-basilisk-sdk/lua"
 }
 description = {
-  summary = "RadioBasilisk SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Radio Basilisk public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/radio-basilisk-sdk",
+  issues_url = "https://github.com/voxgig-sdk/radio-basilisk-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "radio-basilisk" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
