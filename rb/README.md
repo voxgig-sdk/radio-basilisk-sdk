@@ -1,6 +1,11 @@
 # RadioBasilisk Ruby SDK
 
-The Ruby SDK for the RadioBasilisk API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the RadioBasilisk API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "RadioBasilisk_sdk"
 
-client = RadioBasiliskSDK.new({})
+client = RadioBasiliskSDK.new({
+  "apikey" => ENV["RADIO-BASILISK_APIKEY"],
+})
 ```
 
 ### 2. List musics
 
 ```ruby
-result, err = client.Music(nil).list(nil, nil)
+result, err = client.Music().list
 raise err if err
 
 if result.is_a?(Array)
@@ -89,11 +96,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = RadioBasiliskSDK.test(nil, nil)
+client = RadioBasiliskSDK.test
 
-result, err = client.RadioBasilisk(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.RadioBasilisk().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 RADIO-BASILISK_TEST_LIVE=TRUE
+RADIO-BASILISK_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

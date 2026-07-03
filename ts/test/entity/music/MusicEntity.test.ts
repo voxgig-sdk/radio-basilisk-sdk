@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'RADIO_BASILISK_TEST_MUSIC_ENTID': idmap,
     'RADIO_BASILISK_TEST_LIVE': 'FALSE',
     'RADIO_BASILISK_TEST_EXPLAIN': 'FALSE',
+    'RADIO_BASILISK_APIKEY': 'NONE',
   })
 
   idmap = env['RADIO_BASILISK_TEST_MUSIC_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new RadioBasiliskSDK(merge([
       {
+        apikey: env.RADIO_BASILISK_APIKEY,
       },
       extra
     ]))

@@ -119,6 +119,7 @@ func musicBasicSetup(extra map[string]any) *entityTestSetup {
 		"RADIOBASILISK_TEST_MUSIC_ENTID": idmap,
 		"RADIOBASILISK_TEST_LIVE":      "FALSE",
 		"RADIOBASILISK_TEST_EXPLAIN":   "FALSE",
+		"RADIOBASILISK_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["RADIOBASILISK_TEST_MUSIC_ENTID"])
@@ -129,6 +130,7 @@ func musicBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["RADIOBASILISK_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["RADIOBASILISK_APIKEY"],
 			},
 			extra,
 		})

@@ -86,6 +86,7 @@ function music_basic_setup($extra)
         "RADIOBASILISK_TEST_MUSIC_ENTID" => $idmap,
         "RADIOBASILISK_TEST_LIVE" => "FALSE",
         "RADIOBASILISK_TEST_EXPLAIN" => "FALSE",
+        "RADIOBASILISK_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function music_basic_setup($extra)
     if ($env["RADIOBASILISK_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["RADIOBASILISK_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -1,18 +1,8 @@
 # RadioBasilisk SDK
 
-Fetch the recently played tracks from Basel's Radio Basilisk station
+Radio Basilisk API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Radio Basilisk API
-
-[Radio Basilisk](https://www.basilisk.ch/) is a regional broadcaster based at Marktplatz 5 in Basel, Switzerland, reaching around 100,000 daily listeners. This SDK wraps the station's public track-history endpoint, which is served via the [Radiosphere](https://radiosphere.io/) platform that powers the station's digital infrastructure.
-
-What you get from the API:
-
-- A live feed of recently played songs for Radio Basilisk's channel.
-
-Operational notes: the upstream endpoint is hosted at `radio-basilisk.api.radiosphere.io` under a fixed channel UUID. No authentication is documented, and the freepublicapis.com catalogue notes that CORS is disabled, so browser-side calls may need a proxy.
 
 ## Try it
 
@@ -46,29 +36,31 @@ gem install radio-basilisk-sdk
 luarocks install radio-basilisk-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { RadioBasiliskSDK } from 'radio-basilisk'
 
-const client = new RadioBasiliskSDK({})
+const client = new RadioBasiliskSDK({
+  apikey: process.env.RADIO-BASILISK_APIKEY,
+})
 
 // List all musics
 const musics = await client.Music().list()
+console.log(musics.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Music** | Recently played tracks on Radio Basilisk, exposed by the upstream channel `track-history` endpoint. | `/songs/recently-played` |
+| **Music** |  | `/songs/recently-played` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from radiobasilisk_sdk import RadioBasiliskSDK
 
-client = RadioBasiliskSDK({})
+client = RadioBasiliskSDK({
+    "apikey": os.environ.get("RADIO-BASILISK_APIKEY"),
+})
 
 # List all musics
-musics, err = client.Music(None).list(None, None)
+musics, err = client.Music().list()
+print(musics)
 ```
 
 ### PHP
@@ -122,10 +118,13 @@ musics, err = client.Music(None).list(None, None)
 <?php
 require_once 'radiobasilisk_sdk.php';
 
-$client = new RadioBasiliskSDK([]);
+$client = new RadioBasiliskSDK([
+    "apikey" => getenv("RADIO-BASILISK_APIKEY"),
+]);
 
 // List all musics
-[$musics, $err] = $client->Music(null)->list(null, null);
+[$musics, $err] = $client->Music()->list();
+print_r($musics);
 ```
 
 ### Golang
@@ -133,10 +132,13 @@ $client = new RadioBasiliskSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/radio-basilisk-sdk/go"
 
-client := sdk.NewRadioBasiliskSDK(map[string]any{})
+client := sdk.NewRadioBasiliskSDK(map[string]any{
+    "apikey": os.Getenv("RADIO-BASILISK_APIKEY"),
+})
 
 // List all musics
 musics, err := client.Music(nil).List(nil, nil)
+fmt.Println(musics)
 ```
 
 ### Ruby
@@ -144,10 +146,13 @@ musics, err := client.Music(nil).List(nil, nil)
 ```ruby
 require_relative "RadioBasilisk_sdk"
 
-client = RadioBasiliskSDK.new({})
+client = RadioBasiliskSDK.new({
+  "apikey" => ENV["RADIO-BASILISK_APIKEY"],
+})
 
 # List all musics
-musics, err = client.Music(nil).list(nil, nil)
+musics, err = client.Music().list
+puts musics
 ```
 
 ### Lua
@@ -155,10 +160,13 @@ musics, err = client.Music(nil).list(nil, nil)
 ```lua
 local sdk = require("radio-basilisk_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("RADIO-BASILISK_APIKEY"),
+})
 
 -- List all musics
-local musics, err = client:Music(nil):list(nil, nil)
+local musics, err = client:Music():list()
+print(musics)
 ```
 
 ## Unit testing in offline mode
@@ -177,25 +185,21 @@ const result = await client.Music().load({ id: 'test01' })
 ### Python
 
 ```python
-client = RadioBasiliskSDK.test(None, None)
-result, err = client.Music(None).load(
-    {"id": "test01"}, None
-)
+client = RadioBasiliskSDK.test()
+result, err = client.Music().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = RadioBasiliskSDK::test(null, null);
-[$result, $err] = $client->Music(null)->load(
-    ["id" => "test01"], null
-);
+$client = RadioBasiliskSDK::test();
+[$result, $err] = $client->Music()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Music(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -204,19 +208,15 @@ result, err := client.Music(nil).Load(
 ### Ruby
 
 ```ruby
-client = RadioBasiliskSDK.test(nil, nil)
-result, err = client.Music(nil).load(
-  { "id" => "test01" }, nil
-)
+client = RadioBasiliskSDK.test
+result, err = client.Music().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Music(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Music():load({ id = "test01" })
 ```
 
 ## How it works
@@ -320,11 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Radio Basilisk API
-
-- Upstream: [https://www.basilisk.ch/](https://www.basilisk.ch/)
-- API docs: [https://freepublicapis.com/radio-basilisk](https://freepublicapis.com/radio-basilisk)
 
 ---
 

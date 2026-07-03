@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'RADIOBASILISK_TEST_MUSIC_ENTID': {},
     'RADIOBASILISK_TEST_LIVE': 'FALSE',
+    'RADIOBASILISK_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.RADIOBASILISK_TEST_LIVE
 
   if (live) {
     const client = new RadioBasiliskSDK({
+      apikey: env.RADIOBASILISK_APIKEY,
     })
 
     let idmap: any = env['RADIOBASILISK_TEST_MUSIC_ENTID']
