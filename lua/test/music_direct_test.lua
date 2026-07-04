@@ -63,14 +63,12 @@ function music_direct_setup(mockres)
   local env = runner.env_override({
     ["RADIOBASILISK_TEST_MUSIC_ENTID"] = {},
     ["RADIOBASILISK_TEST_LIVE"] = "FALSE",
-    ["RADIOBASILISK_APIKEY"] = "NONE",
   })
 
   local live = env["RADIOBASILISK_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["RADIOBASILISK_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

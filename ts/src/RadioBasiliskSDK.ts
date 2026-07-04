@@ -2,6 +2,8 @@
 
 import { MusicEntity } from './entity/MusicEntity'
 
+export type * from './RadioBasiliskTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class RadioBasiliskSDK {
 
 
 
+  _music?: MusicEntity
+
+  // Idiomatic facade: `client.music.list()` / `client.music.load({ id })`.
+  get music(): MusicEntity {
+    return (this._music ??= new MusicEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.music` instead. */
   Music(data?: any) {
     const self = this
     return new MusicEntity(self,data)

@@ -245,6 +245,9 @@ func (sdk *RadioBasiliskSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Music returns a Music entity bound to this client.
+// Idiomatic usage: client.Music(nil).List(nil, nil) or
+// client.Music(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *RadioBasiliskSDK) Music(data map[string]any) RadioBasiliskEntity {
 	return NewMusicEntityFunc(sdk, data)
 }

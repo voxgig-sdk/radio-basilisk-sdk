@@ -93,14 +93,12 @@ func musicDirectSetup(mockres any) *musicDirectSetupResult {
 	env := envOverride(map[string]any{
 		"RADIOBASILISK_TEST_MUSIC_ENTID": map[string]any{},
 		"RADIOBASILISK_TEST_LIVE":    "FALSE",
-		"RADIOBASILISK_APIKEY":       "NONE",
 	})
 
 	live := env["RADIOBASILISK_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["RADIOBASILISK_APIKEY"],
 		}
 		client := sdk.NewRadioBasiliskSDK(mergedOpts)
 

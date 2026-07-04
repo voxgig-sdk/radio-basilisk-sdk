@@ -9,9 +9,12 @@ The TypeScript SDK for the RadioBasilisk API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/radio-basilisk
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/radio-basilisk-sdk/releases](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RadioBasiliskSDK } from 'radio-basilisk'
+import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
 
-const client = new RadioBasiliskSDK({
-  apikey: process.env.RADIO-BASILISK_APIKEY,
-})
+const client = new RadioBasiliskSDK()
 ```
 
 ### 2. List musics
 
 ```ts
-const result = await client.Music().list()
+const result = await client.music.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = RadioBasiliskSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.music.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new RadioBasiliskSDK({ apikey: '...' })
+const client = new RadioBasiliskSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.music
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new RadioBasiliskSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new RadioBasiliskSDK({
 Create a `.env.local` file at the project root:
 
 ```
-RADIO-BASILISK_TEST_LIVE=TRUE
-RADIO-BASILISK_APIKEY=<your-key>
+RADIO_BASILISK_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new RadioBasiliskSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new RadioBasiliskSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -274,7 +271,7 @@ API path: `/songs/recently-played`
 
 ### Music
 
-Create an instance: `const music = client.Music()`
+Create an instance: `const music = client.music`
 
 #### Operations
 
@@ -297,7 +294,7 @@ Create an instance: `const music = client.Music()`
 #### Example: List
 
 ```ts
-const musics = await client.Music().list()
+const musics = await client.music.list()
 ```
 
 
@@ -358,7 +355,7 @@ radio-basilisk/
 Import the SDK from the package root:
 
 ```ts
-import { RadioBasiliskSDK } from 'radio-basilisk'
+import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
 ```
 
 ### Entity state
@@ -368,11 +365,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const music = client.music
+await music.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// music.data() now returns the loaded music data
+// music.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
