@@ -233,10 +233,10 @@ class RadioBasiliskSDK
 
     private $_music = null;
 
-    // Idiomatic facade: $client->music()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Music() (PHP method
-    // names are case-insensitive).
-    public function music($data = null)
+    // Canonical facade: $client->Music()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->music()
+    // resolves here too.
+    public function Music($data = null)
     {
         require_once __DIR__ . '/entity/music_entity.php';
         if ($data === null) {

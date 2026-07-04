@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## MusicEntity
 
 ```ruby
-music = client.music
+music = client.Music
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ music = client.music
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.music.list(nil)
+results = client.Music.list(nil)
 ```
 
 ### Common Methods

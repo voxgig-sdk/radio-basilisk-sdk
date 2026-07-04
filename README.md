@@ -26,9 +26,11 @@ import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
 
 const client = new RadioBasiliskSDK()
 
-// List all musics
-const musics = await client.music.list()
-console.log(musics.data)
+// List all musics (returns Music[])
+const musics = await client.Music().list()
+for (const music of musics) {
+  console.log(music)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from radiobasilisk_sdk import RadioBasiliskSDK
 
 client = RadioBasiliskSDK()
 
-# List all musics
-musics = client.music.list()
-print(musics)
+# List all musics (returns a list, raises on error)
+musics = client.Music().list({})
+for music in musics:
+    print(music)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'radiobasilisk_sdk.php';
 
 $client = new RadioBasiliskSDK();
 
-// List all musics (throws on error)
-$musics = $client->music()->list();
+// List all musics (returns an array; throws on error)
+$musics = $client->Music()->list();
 print_r($musics);
 ```
 
@@ -120,8 +123,8 @@ require_relative "RadioBasilisk_sdk"
 
 client = RadioBasiliskSDK.new
 
-# List all musics
-musics = client.music.list
+# List all musics (returns an Array; raises on error)
+musics = client.Music.list
 puts musics
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("radio-basilisk_sdk")
 local client = sdk.new()
 
 -- List all musics
-local musics, err = client:music():list()
+local musics, err = client:Music():list()
 print(musics)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = RadioBasiliskSDK.test()
-const result = await client.music.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const music = await client.Music().load({ id: 'test01' })
+// music is a bare Music populated with mock data
+console.log(music)
 ```
 
 ### Python
 
 ```python
 client = RadioBasiliskSDK.test()
-result = client.music.load({"id": "test01"})
+music = client.Music().load({"id": "test01"})
+print(music)
 ```
 
 ### PHP
 
 ```php
-$client = RadioBasiliskSDK::test();
-$result = $client->music()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = RadioBasiliskSDK::test([
+    "entity" => ["music" => ["test01" => ["id" => "test01"]]],
+]);
+$music = $client->Music()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Music(nil).Load(
 ### Ruby
 
 ```ruby
-client = RadioBasiliskSDK.test
-result = client.music.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = RadioBasiliskSDK.test({
+  "entity" => { "music" => { "test01" => { "id" => "test01" } } },
+})
+music = client.Music.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:music():load({ id = "test01" })
+local result, err = client:Music():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MusicEntity
 
 ```php
-$music = $client->music();
+$music = $client->Music();
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ $music = $client->music();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->music()->list([]);
+$results = $client->Music()->list([]);
 ```
 
 ### Common Methods

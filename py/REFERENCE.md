@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MusicEntity
 
 ```python
-music = client.music
+music = client.Music()
 ```
 
 ### Fields
@@ -102,7 +102,9 @@ music = client.music
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.music.list({})
+results = client.Music().list({})
+for music in results:
+    print(music)
 ```
 
 ### Common Methods

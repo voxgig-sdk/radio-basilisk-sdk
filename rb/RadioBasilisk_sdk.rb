@@ -208,13 +208,7 @@ class RadioBasiliskSDK
   end
 
 
-  # Idiomatic facade: client.music.list / client.music.load({ "id" => ... })
-  def music
-    require_relative 'entity/music_entity'
-    @music ||= MusicEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.music instead.
+  # Canonical facade: client.Music.list / client.Music.load({ "id" => ... })
   def Music(data = nil)
     require_relative 'entity/music_entity'
     MusicEntity.new(self, data)

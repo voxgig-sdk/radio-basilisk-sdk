@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## MusicEntity
 
 ```lua
-local music = client:music(nil)
+local music = client:Music(nil)
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ local music = client:music(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:music():list()
+local results, err = client:Music():list()
 ```
 
 ### Common Methods

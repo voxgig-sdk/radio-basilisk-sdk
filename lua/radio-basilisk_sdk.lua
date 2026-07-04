@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:music():list() / client:music():load({ id = ... })
-function RadioBasiliskSDK:music(data)
+-- Idiomatic facade: client:Music():list() / client:Music():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function RadioBasiliskSDK:Music(data)
   local EntityMod = require("entity.music_entity")
   if data == nil then
     if self._music == nil then
@@ -253,12 +254,6 @@ function RadioBasiliskSDK:music(data)
     end
     return self._music
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:music() instead.
-function RadioBasiliskSDK:Music(data)
-  local EntityMod = require("entity.music_entity")
   return EntityMod.new(self, data)
 end
 

@@ -220,25 +220,15 @@ class RadioBasiliskSDK:
         }
 
 
-    @property
-    def music(self):
-        """Idiomatic facade: client.music.list() / client.music.load({"id": ...})."""
-        from entity.music_entity import MusicEntity
-        cached = getattr(self, "_music", None)
-        if cached is None:
-            cached = MusicEntity(self, None)
-            self._music = cached
-        return cached
-
-    def Music(self, data=None):
-        # Deprecated: use client.music instead.
+    def Music(self, data=None) -> "MusicEntity":
+        """Entity factory: client.Music().list({}) / client.Music().load({"id": ...})."""
         from entity.music_entity import MusicEntity
         return MusicEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "RadioBasiliskSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class RadioBasiliskSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.music_entity import MusicEntity

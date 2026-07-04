@@ -31,14 +31,16 @@ from radiobasilisk_sdk import RadioBasiliskSDK
 client = RadioBasiliskSDK()
 ```
 
-### 2. List musics
+### 2. List music records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.music.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    musics = client.Music().list({})
+    for music in musics:
+        print(music)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = RadioBasiliskSDK.test()
 
-result = client.music.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+music = client.Music().load({"id": "test01"})
+# music contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -226,7 +229,7 @@ API path: `/songs/recently-played`
 
 ### Music
 
-Create an instance: `const music = client.music`
+Create an instance: `music = client.Music()`
 
 #### Operations
 
@@ -248,8 +251,8 @@ Create an instance: `const music = client.music`
 
 #### Example: List
 
-```ts
-const musics = await client.music.list()
+```python
+musics = client.Music().list({})
 ```
 
 
@@ -323,7 +326,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-music = client.music
+music = client.Music()
 music.load({"id": "example_id"})
 
 # music.data_get() now returns the loaded music data

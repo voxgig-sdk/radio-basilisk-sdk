@@ -204,14 +204,7 @@ class RadioBasiliskSDK {
 
 
 
-  _music?: MusicEntity
-
-  // Idiomatic facade: `client.music.list()` / `client.music.load({ id })`.
-  get music(): MusicEntity {
-    return (this._music ??= new MusicEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.music` instead. */
+  // Entity access: `client.Music().list()` / `client.Music().load({ id })`.
   Music(data?: any) {
     const self = this
     return new MusicEntity(self,data)

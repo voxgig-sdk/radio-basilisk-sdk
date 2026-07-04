@@ -28,16 +28,14 @@ require_relative "RadioBasilisk_sdk"
 client = RadioBasiliskSDK.new
 ```
 
-### 2. List musics
+### 2. List music records
 
 ```ruby
 begin
-  result = client.music.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Music records — iterate directly.
+  musics = client.Music.list
+  musics.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = RadioBasiliskSDK.test
+client = RadioBasiliskSDK.test({
+  "entity" => { "music" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.music.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+music = client.Music.load({ "id" => "test01" })
+puts music
 ```
 
 ### Use a custom fetch function
@@ -229,7 +231,7 @@ API path: `/songs/recently-played`
 
 ### Music
 
-Create an instance: `const music = client.music`
+Create an instance: `music = client.Music`
 
 #### Operations
 
@@ -251,8 +253,9 @@ Create an instance: `const music = client.music`
 
 #### Example: List
 
-```ts
-const musics = await client.music.list()
+```ruby
+# list returns an Array of Music records (raises on error).
+musics = client.Music.list
 ```
 
 
@@ -327,7 +330,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-music = client.music
+music = client.Music
 music.load({ "id" => "example_id" })
 
 # music.data_get now returns the loaded music data
