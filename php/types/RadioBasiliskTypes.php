@@ -24,7 +24,7 @@ class Music
     public string $title;
 }
 
-/** Match filter for Music#list (any subset of Music fields). */
+/** Request payload for Music#list. */
 class MusicListMatch
 {
     public ?string $album = null;

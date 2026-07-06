@@ -19,8 +19,7 @@ type Music struct {
 	Title string `json:"title"`
 }
 
-// MusicListMatch mirrors the music fields as an all-optional match
-// filter (Go analog of Partial<Music>).
+// MusicListMatch is the typed request payload for Music.ListTyped.
 type MusicListMatch struct {
 	Album *string `json:"album,omitempty"`
 	Artist *string `json:"artist,omitempty"`

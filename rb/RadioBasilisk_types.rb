@@ -41,7 +41,7 @@ Music = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Music#list (any subset of Music fields).
+# Request payload for Music#list.
 #
 # @!attribute [rw] album
 #   @return [String, nil]

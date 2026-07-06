@@ -221,7 +221,7 @@ class RadioBasiliskSDK:
 
 
     def Music(self, data=None) -> "MusicEntity":
-        """Entity factory: client.Music().list({}) / client.Music().load({"id": ...})."""
+        """Entity factory: client.Music().list() / client.Music().load({"id": ...})."""
         from entity.music_entity import MusicEntity
         return MusicEntity(self, data)
 

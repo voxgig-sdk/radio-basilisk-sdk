@@ -15,5 +15,13 @@ export interface Music {
   title: string
 }
 
-export type MusicListMatch = Partial<Music>
+export interface MusicListMatch {
+  album?: string
+  artist?: string
+  cover_image?: string
+  duration?: number
+  id?: string
+  played_at?: string
+  title?: string
+}
 

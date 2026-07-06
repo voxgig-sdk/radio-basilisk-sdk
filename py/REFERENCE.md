@@ -8,7 +8,7 @@ Complete API reference for the RadioBasilisk Python SDK.
 ### Constructor
 
 ```python
-from radio-basilisk_sdk import RadioBasiliskSDK
+from radiobasilisk_sdk import RadioBasiliskSDK
 
 client = RadioBasiliskSDK(options)
 ```
@@ -87,22 +87,22 @@ music = client.Music()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | Yes |  |
-| `cover_image` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `played_at` | ``$STRING`` | Yes |  |
-| `title` | ``$STRING`` | Yes |  |
+| `album` | `str` | No |  |
+| `artist` | `str` | Yes |  |
+| `cover_image` | `str` | No |  |
+| `duration` | `int` | No |  |
+| `id` | `str` | No |  |
+| `played_at` | `str` | Yes |  |
+| `title` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Music().list({})
+results = client.Music().list()
 for music in results:
     print(music)
 ```
