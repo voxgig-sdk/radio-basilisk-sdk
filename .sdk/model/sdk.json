@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -249,14 +246,17 @@
           "url": "https://www.basilisk.ch/"
         },
         "description": "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region. This API shows the last played songs on Radio Basilisk.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.basilisk.ch/api"
           }
         ],
+        "summary": "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region.",
         "title": "Radio Basilisk API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://basilisk.ch"
       },
       "option": {},
       "target": {
@@ -309,6 +309,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -359,6 +362,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

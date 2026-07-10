@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 music := client.Music(nil)
+fmt.Println(music.GetName()) // "music"
 ```
 
 ### Fields
@@ -113,6 +114,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Music(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

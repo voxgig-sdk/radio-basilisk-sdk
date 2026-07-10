@@ -17,9 +17,9 @@ main: {
           url: "https://www.basilisk.ch/api"
         }
       ]
+      summary: "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region."
       title: "Radio Basilisk API"
       version: "1.0.0"
+      website: "https://basilisk.ch"
     }
   }
-}
-
