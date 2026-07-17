@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- RadioBasilisk SDK configuration
 
 local function make_config()
   return {

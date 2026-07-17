@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- RadioBasilisk SDK exists test
 
 local sdk = require("radio-basilisk_sdk")
 
