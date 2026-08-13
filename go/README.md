@@ -262,10 +262,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"album"` |  |
 | `"artist"` |  |
-| `"cover_image"` |  |
+| `"coverImage"` |  |
 | `"duration"` |  |
 | `"id"` |  |
-| `"played_at"` |  |
+| `"playedAt"` |  |
 | `"title"` |  |
 
 Operations: List.
@@ -293,10 +293,10 @@ Create an instance: `music := client.Music(nil)`
 | --- | --- | --- |
 | `album` | `string` |  |
 | `artist` | `string` |  |
-| `cover_image` | `string` |  |
+| `coverImage` | `string` |  |
 | `duration` | `int` |  |
 | `id` | `string` |  |
-| `played_at` | `string` |  |
+| `playedAt` | `string` |  |
 | `title` | `string` |  |
 
 #### Example: List

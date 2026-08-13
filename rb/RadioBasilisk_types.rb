@@ -16,7 +16,7 @@
 # @!attribute [rw] artist
 #   @return [String]
 #
-# @!attribute [rw] cover_image
+# @!attribute [rw] coverImage
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -25,7 +25,7 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] played_at
+# @!attribute [rw] playedAt
 #   @return [String]
 #
 # @!attribute [rw] title
@@ -33,10 +33,10 @@
 Music = Struct.new(
   :album,
   :artist,
-  :cover_image,
+  :coverImage,
   :duration,
   :id,
-  :played_at,
+  :playedAt,
   :title,
   keyword_init: true
 )
@@ -49,7 +49,7 @@ Music = Struct.new(
 # @!attribute [rw] artist
 #   @return [String, nil]
 #
-# @!attribute [rw] cover_image
+# @!attribute [rw] coverImage
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -58,7 +58,7 @@ Music = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] played_at
+# @!attribute [rw] playedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] title
@@ -66,10 +66,10 @@ Music = Struct.new(
 MusicListMatch = Struct.new(
   :album,
   :artist,
-  :cover_image,
+  :coverImage,
   :duration,
   :id,
-  :played_at,
+  :playedAt,
   :title,
   keyword_init: true
 )

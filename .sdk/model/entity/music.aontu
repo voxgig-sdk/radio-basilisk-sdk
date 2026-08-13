@@ -16,7 +16,7 @@ main: kit: entity: music: {
       type: "`$STRING`"
     }
     {
-      name: "cover_image"
+      name: "coverImage"
       req: false
       type: "`$STRING`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: music: {
       type: "`$STRING`"
     }
     {
-      name: "played_at"
+      name: "playedAt"
       req: true
       type: "`$STRING`"
     }
@@ -78,7 +78,7 @@ main: kit: entity: music: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.songs`"
           }
         }
       ]

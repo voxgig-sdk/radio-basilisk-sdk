@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ RadioBasiliskUtility.registrar = ->(u) {
   u.prepare_params = RadioBasiliskUtilities::PrepareParams
   u.prepare_path = RadioBasiliskUtilities::PreparePath
   u.prepare_query = RadioBasiliskUtilities::PrepareQuery
+  u.graphql_body = RadioBasiliskUtilities::GraphqlBody
+  u.graphql_errors = RadioBasiliskUtilities::GraphqlErrors
   u.result_basic = RadioBasiliskUtilities::ResultBasic
   u.result_body = RadioBasiliskUtilities::ResultBody
   u.result_headers = RadioBasiliskUtilities::ResultHeaders

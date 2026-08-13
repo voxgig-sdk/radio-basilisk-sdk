@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = RadioBasiliskSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = RadioBasiliskSDK.test({
+  entity: {
+    music: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const musics = await client.Music().list()
-// musics is an array of bare Music records populated with mock data
+// musics is an array of Music entities, populated with mock data
+// — call musics[0].data() for the record itself
 console.log(musics)
 ```
 
@@ -110,7 +119,7 @@ import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
 
 const client = new RadioBasiliskSDK()
 
-// List all musics (returns Music[])
+// List all musics (returns MusicEntity[] — .data() for the record)
 const musics = await client.Music().list()
 for (const music of musics) {
   console.log(music)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.basilisk.ch/](https://www.basilisk.ch/)
 

@@ -26,8 +26,8 @@ import {
 describe('MusicEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when RADIOBASILISK_TEST_LIVE=TRUE.
-  afterEach(liveDelay('RADIOBASILISK_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RADIO_BASILISK_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RADIO_BASILISK_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = RadioBasiliskSDK.test()
@@ -63,7 +63,7 @@ describe('MusicEntity', async () => {
     const music_ref01_ent = client.Music()
     const music_ref01_match: any = {}
 
-    const music_ref01_list = await music_ref01_ent.list(music_ref01_match)
+    const music_ref01_list = (await music_ref01_ent.list(music_ref01_match)).map((e: any) => e.data())
 
 
   })

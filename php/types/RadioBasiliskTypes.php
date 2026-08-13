@@ -17,10 +17,10 @@ class Music
 {
     public ?string $album = null;
     public string $artist;
-    public ?string $cover_image = null;
+    public ?string $coverImage = null;
     public ?int $duration = null;
     public ?string $id = null;
-    public string $played_at;
+    public string $playedAt;
     public string $title;
 }
 
@@ -29,10 +29,10 @@ class MusicListMatch
 {
     public ?string $album = null;
     public ?string $artist = null;
-    public ?string $cover_image = null;
+    public ?string $coverImage = null;
     public ?int $duration = null;
     public ?string $id = null;
-    public ?string $played_at = null;
+    public ?string $playedAt = null;
     public ?string $title = null;
 }
 

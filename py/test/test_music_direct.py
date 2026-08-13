@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from radiobasilisk_sdk.utility.voxgig_struct import voxgig_struct as vs
 from radiobasilisk_sdk import RadioBasiliskSDK
-from core import helpers
+from radiobasilisk_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _music_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "RADIOBASILISK_TEST_MUSIC_ENTID": {},
-        "RADIOBASILISK_TEST_LIVE": "FALSE",
+        "RADIO_BASILISK_TEST_MUSIC_ENTID": {},
+        "RADIO_BASILISK_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("RADIOBASILISK_TEST_LIVE") == "TRUE"
+    live = env.get("RADIO_BASILISK_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

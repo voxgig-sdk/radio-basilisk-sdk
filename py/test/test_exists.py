@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# RadioBasilisk SDK exists test
 
 import pytest
 from radiobasilisk_sdk import RadioBasiliskSDK

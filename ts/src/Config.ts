@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'RadioBasilisk',
   }
 
 
@@ -70,7 +70,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "cover_image",
+          "name": "coverImage",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -91,7 +91,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "played_at",
+          "name": "playedAt",
           "req": true,
           "type": "`$STRING`",
           "index$": 5
@@ -125,6 +125,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/songs/recently-played",
               "parts": [
@@ -138,7 +139,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.songs`"
               },
               "index$": 0
             }

@@ -23,8 +23,8 @@ module RadioBasiliskTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("RADIOBASILISK_TEST_LIVE")
-    override = getenv("RADIOBASILISK_TEST_OVERRIDE")
+    live = getenv("RADIO_BASILISK_TEST_LIVE")
+    override = getenv("RADIO_BASILISK_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module RadioBasiliskTestRunner
       end
     end
 
-    explain = getenv("RADIOBASILISK_TEST_EXPLAIN")
-    m["RADIOBASILISK_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("RADIO_BASILISK_TEST_EXPLAIN")
+    m["RADIO_BASILISK_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

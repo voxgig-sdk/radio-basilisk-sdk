@@ -8,6 +8,7 @@ guide: {
   entity: music: {
     path: "/songs/recently-played": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.songs`")|top
     }
   }
 

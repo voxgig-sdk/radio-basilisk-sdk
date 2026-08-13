@@ -9,19 +9,19 @@
 ---@class Music
 ---@field album? string
 ---@field artist string
----@field cover_image? string
+---@field coverImage? string
 ---@field duration? number
 ---@field id? string
----@field played_at string
+---@field playedAt string
 ---@field title string
 
 ---@class MusicListMatch
 ---@field album? string
 ---@field artist? string
----@field cover_image? string
+---@field coverImage? string
 ---@field duration? number
 ---@field id? string
----@field played_at? string
+---@field playedAt? string
 ---@field title? string
 
 local M = {}

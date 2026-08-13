@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import RadioBasiliskSDK
-from core.error import RadioBasiliskError
-from core.result import RadioBasiliskResult
-from core.response import RadioBasiliskResponse
-from core.spec import RadioBasiliskSpec
-from feature.base_feature import RadioBasiliskBaseFeature
+from projectname_sdk.core.error import RadioBasiliskError
+from projectname_sdk.core.result import RadioBasiliskResult
+from projectname_sdk.core.response import RadioBasiliskResponse
+from projectname_sdk.core.spec import RadioBasiliskSpec
+from projectname_sdk.feature.base_feature import RadioBasiliskBaseFeature
 
 
 def _client():

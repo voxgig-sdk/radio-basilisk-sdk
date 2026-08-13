@@ -100,10 +100,10 @@ fmt.Println(music.GetName()) // "music"
 | --- | --- | --- | --- |
 | `album` | `string` | No |  |
 | `artist` | `string` | Yes |  |
-| `cover_image` | `string` | No |  |
+| `coverImage` | `string` | No |  |
 | `duration` | `int` | No |  |
 | `id` | `string` | No |  |
-| `played_at` | `string` | Yes |  |
+| `playedAt` | `string` | Yes |  |
 | `title` | `string` | Yes |  |
 
 ### Operations

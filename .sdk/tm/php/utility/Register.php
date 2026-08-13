@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ RadioBasiliskUtility::setRegistrar(function (RadioBasiliskUtility $u): void {
     $u->prepare_params = [RadioBasiliskPrepareParams::class, 'call'];
     $u->prepare_path = [RadioBasiliskPreparePath::class, 'call'];
     $u->prepare_query = [RadioBasiliskPrepareQuery::class, 'call'];
+    $u->graphql_body = [RadioBasiliskGraphql::class, 'body'];
+    $u->graphql_errors = [RadioBasiliskGraphql::class, 'errors'];
     $u->result_basic = [RadioBasiliskResultBasic::class, 'call'];
     $u->result_body = [RadioBasiliskResultBody::class, 'call'];
     $u->result_headers = [RadioBasiliskResultHeaders::class, 'call'];

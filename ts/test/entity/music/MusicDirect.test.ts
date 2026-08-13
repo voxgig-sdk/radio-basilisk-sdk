@@ -19,11 +19,15 @@ import {
 describe('MusicDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when RADIOBASILISK_TEST_LIVE=TRUE.
-  afterEach(liveDelay('RADIOBASILISK_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when RADIO_BASILISK_TEST_LIVE=TRUE.
+  afterEach(liveDelay('RADIO_BASILISK_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new RadioBasiliskSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'RADIOBASILISK_TEST_MUSIC_ENTID': {},
-    'RADIOBASILISK_TEST_LIVE': 'FALSE',
+    'RADIO_BASILISK_TEST_MUSIC_ENTID': {},
+    'RADIO_BASILISK_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.RADIOBASILISK_TEST_LIVE
+  const live = 'TRUE' === env.RADIO_BASILISK_TEST_LIVE
 
   if (live) {
     const client = new RadioBasiliskSDK({
     })
 
-    let idmap: any = env['RADIOBASILISK_TEST_MUSIC_ENTID']
+    let idmap: any = env['RADIO_BASILISK_TEST_MUSIC_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

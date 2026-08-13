@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import RadioBasiliskControl
-from core.error import RadioBasiliskError
-from core.result import RadioBasiliskResult
-from core.spec import RadioBasiliskSpec
+from radiobasilisk_sdk.config import make_config
+from radiobasilisk_sdk.features import _make_feature
+from radiobasilisk_sdk.core.control import RadioBasiliskControl
+from radiobasilisk_sdk.core.error import RadioBasiliskError
+from radiobasilisk_sdk.core.result import RadioBasiliskResult
+from radiobasilisk_sdk.core.spec import RadioBasiliskSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -89,10 +89,10 @@ music = client.Music()
 | --- | --- | --- | --- |
 | `album` | `str` | No |  |
 | `artist` | `str` | Yes |  |
-| `cover_image` | `str` | No |  |
+| `coverImage` | `str` | No |  |
 | `duration` | `int` | No |  |
 | `id` | `str` | No |  |
-| `played_at` | `str` | Yes |  |
+| `playedAt` | `str` | Yes |  |
 | `title` | `str` | Yes |  |
 
 ### Operations

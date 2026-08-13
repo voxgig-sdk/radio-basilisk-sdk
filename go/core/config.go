@@ -40,7 +40,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "cover_image",
+						"name": "coverImage",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -61,7 +61,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "played_at",
+						"name": "playedAt",
 						"req": true,
 						"type": "`$STRING`",
 						"index$": 5,
@@ -95,6 +95,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/songs/recently-played",
 								"parts": []any{
@@ -108,12 +109,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.songs`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

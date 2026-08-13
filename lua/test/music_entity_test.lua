@@ -70,7 +70,7 @@ describe("MusicEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set RADIOBASILISK_TEST_MUSIC_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set RADIO_BASILISK_TEST_MUSIC_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -126,22 +126,22 @@ function music_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("RADIOBASILISK_TEST_MUSIC_ENTID")
+  local entid_env_raw = os.getenv("RADIO_BASILISK_TEST_MUSIC_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["RADIOBASILISK_TEST_MUSIC_ENTID"] = idmap,
-    ["RADIOBASILISK_TEST_LIVE"] = "FALSE",
-    ["RADIOBASILISK_TEST_EXPLAIN"] = "FALSE",
+    ["RADIO_BASILISK_TEST_MUSIC_ENTID"] = idmap,
+    ["RADIO_BASILISK_TEST_LIVE"] = "FALSE",
+    ["RADIO_BASILISK_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["RADIOBASILISK_TEST_MUSIC_ENTID"])
+    env["RADIO_BASILISK_TEST_MUSIC_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["RADIOBASILISK_TEST_LIVE"] == "TRUE" then
+  if env["RADIO_BASILISK_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -150,13 +150,13 @@ function music_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["RADIOBASILISK_TEST_LIVE"] == "TRUE"
+  local live = env["RADIO_BASILISK_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["RADIOBASILISK_TEST_EXPLAIN"] == "TRUE",
+    explain = env["RADIO_BASILISK_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

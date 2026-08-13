@@ -46,7 +46,7 @@ class RadioBasiliskConfig
             ],
             [
               'active' => true,
-              'name' => 'cover_image',
+              'name' => 'coverImage',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
@@ -67,7 +67,7 @@ class RadioBasiliskConfig
             ],
             [
               'active' => true,
-              'name' => 'played_at',
+              'name' => 'playedAt',
               'req' => true,
               'type' => '`$STRING`',
               'index$' => 5,
@@ -101,6 +101,7 @@ class RadioBasiliskConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/songs/recently-played',
                   'parts' => [
@@ -114,7 +115,7 @@ class RadioBasiliskConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.songs`',
                   ],
                   'index$' => 0,
                 ],

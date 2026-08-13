@@ -8,20 +8,20 @@
 export interface Music {
   album?: string
   artist: string
-  cover_image?: string
+  coverImage?: string
   duration?: number
   id?: string
-  played_at: string
+  playedAt: string
   title: string
 }
 
 export interface MusicListMatch {
   album?: string
   artist?: string
-  cover_image?: string
+  coverImage?: string
   duration?: number
   id?: string
-  played_at?: string
+  playedAt?: string
   title?: string
 }
 

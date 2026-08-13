@@ -61,11 +61,11 @@ function music_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["RADIOBASILISK_TEST_MUSIC_ENTID"] = {},
-    ["RADIOBASILISK_TEST_LIVE"] = "FALSE",
+    ["RADIO_BASILISK_TEST_MUSIC_ENTID"] = {},
+    ["RADIO_BASILISK_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["RADIOBASILISK_TEST_LIVE"] == "TRUE"
+  local live = env["RADIO_BASILISK_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

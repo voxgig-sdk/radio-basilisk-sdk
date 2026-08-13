@@ -95,10 +95,10 @@ music = client.Music
 | --- | --- | --- | --- |
 | `album` | `String` | No |  |
 | `artist` | `String` | Yes |  |
-| `cover_image` | `String` | No |  |
+| `coverImage` | `String` | No |  |
 | `duration` | `Integer` | No |  |
 | `id` | `String` | No |  |
-| `played_at` | `String` | Yes |  |
+| `playedAt` | `String` | Yes |  |
 | `title` | `String` | Yes |  |
 
 ### Operations

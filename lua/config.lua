@@ -40,7 +40,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "cover_image",
+            ["name"] = "coverImage",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -61,7 +61,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "played_at",
+            ["name"] = "playedAt",
             ["req"] = true,
             ["type"] = "`$STRING`",
             ["index$"] = 5,
@@ -95,6 +95,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/songs/recently-played",
                 ["parts"] = {
@@ -108,7 +109,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.songs`",
                 },
                 ["index$"] = 0,
               },
