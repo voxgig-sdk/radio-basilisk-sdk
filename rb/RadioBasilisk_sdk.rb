@@ -28,7 +28,7 @@ class RadioBasiliskSDK
     utility = RadioBasiliskUtility.new
     @_utility = utility
 
-    config = RadioBasiliskConfig.make_config
+    config = RadioBasiliskConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

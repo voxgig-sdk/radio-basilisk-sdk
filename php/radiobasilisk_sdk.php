@@ -40,7 +40,7 @@ class RadioBasiliskSDK
         $utility = new RadioBasiliskUtility();
         $this->_utility = $utility;
 
-        $config = RadioBasiliskConfig::make_config();
+        $config = RadioBasiliskConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

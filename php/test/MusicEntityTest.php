@@ -40,7 +40,7 @@ class MusicEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = RadioBasiliskConfig::make_config();
+        $cfg = RadioBasiliskConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = RadioBasiliskSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

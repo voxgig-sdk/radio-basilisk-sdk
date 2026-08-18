@@ -42,8 +42,8 @@ class TestMusicEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from radiobasilisk_sdk.config import make_config
-        cfg = make_config()
+        from radiobasilisk_sdk.config import shared_config
+        cfg = shared_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = RadioBasiliskSDK.test(
                 seed, {"feature": {"streaming": {"active": True}}})
