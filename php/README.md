@@ -247,13 +247,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `artist` |  |
-| `coverImage` |  |
-| `duration` |  |
-| `id` |  |
-| `playedAt` |  |
-| `title` |  |
+| `album` | Album name |
+| `artist` | Artist name |
+| `coverImage` | URL to the album cover image |
+| `duration` | Duration of the song in seconds |
+| `id` | Unique identifier for the song |
+| `playedAt` | Timestamp when the song was played |
+| `title` | Title of the song |
 
 Operations: List.
 
@@ -278,13 +278,13 @@ Create an instance: `$music = $client->Music();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `artist` | `string` |  |
-| `coverImage` | `string` |  |
-| `duration` | `int` |  |
-| `id` | `string` |  |
-| `playedAt` | `string` |  |
-| `title` | `string` |  |
+| `album` | `string` | Album name |
+| `artist` | `string` | Artist name |
+| `coverImage` | `string` | URL to the album cover image |
+| `duration` | `int` | Duration of the song in seconds |
+| `id` | `string` | Unique identifier for the song |
+| `playedAt` | `string` | Timestamp when the song was played |
+| `title` | `string` | Title of the song |
 
 #### Example: List
 

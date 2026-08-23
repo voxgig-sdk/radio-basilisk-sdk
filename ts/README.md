@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,13 +287,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `artist` |  |
-| `coverImage` |  |
-| `duration` |  |
-| `id` |  |
-| `playedAt` |  |
-| `title` |  |
+| `album` | Album name |
+| `artist` | Artist name |
+| `coverImage` | URL to the album cover image |
+| `duration` | Duration of the song in seconds |
+| `id` | Unique identifier for the song |
+| `playedAt` | Timestamp when the song was played |
+| `title` | Title of the song |
 
 Operations: list.
 
@@ -318,13 +318,13 @@ Create an instance: `const music = client.Music()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `artist` | `string` |  |
-| `coverImage` | `string` |  |
-| `duration` | `number` |  |
-| `id` | `string` |  |
-| `playedAt` | `string` |  |
-| `title` | `string` |  |
+| `album` | `string` | Album name |
+| `artist` | `string` | Artist name |
+| `coverImage` | `string` | URL to the album cover image |
+| `duration` | `number` | Duration of the song in seconds |
+| `id` | `string` | Unique identifier for the song |
+| `playedAt` | `string` | Timestamp when the song was played |
+| `title` | `string` | Title of the song |
 
 #### Example: List
 

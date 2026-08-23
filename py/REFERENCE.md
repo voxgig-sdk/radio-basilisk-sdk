@@ -87,13 +87,13 @@ music = client.Music()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `str` | No |  |
-| `artist` | `str` | Yes |  |
-| `coverImage` | `str` | No |  |
-| `duration` | `int` | No |  |
-| `id` | `str` | No |  |
-| `playedAt` | `str` | Yes |  |
-| `title` | `str` | Yes |  |
+| `album` | `str` | No | Album name |
+| `artist` | `str` | Yes | Artist name |
+| `coverImage` | `str` | No | URL to the album cover image |
+| `duration` | `int` | No | Duration of the song in seconds |
+| `id` | `str` | No | Unique identifier for the song |
+| `playedAt` | `str` | Yes | Timestamp when the song was played |
+| `title` | `str` | Yes | Title of the song |
 
 ### Operations
 

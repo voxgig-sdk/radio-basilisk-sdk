@@ -93,13 +93,13 @@ music = client.Music
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `String` | No |  |
-| `artist` | `String` | Yes |  |
-| `coverImage` | `String` | No |  |
-| `duration` | `Integer` | No |  |
-| `id` | `String` | No |  |
-| `playedAt` | `String` | Yes |  |
-| `title` | `String` | Yes |  |
+| `album` | `String` | No | Album name |
+| `artist` | `String` | Yes | Artist name |
+| `coverImage` | `String` | No | URL to the album cover image |
+| `duration` | `Integer` | No | Duration of the song in seconds |
+| `id` | `String` | No | Unique identifier for the song |
+| `playedAt` | `String` | Yes | Timestamp when the song was played |
+| `title` | `String` | Yes | Title of the song |
 
 ### Operations
 

@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "RadioBasilisk",
+      slug = "radio-basilisk",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,33 +32,40 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "album",
+            ["short"] = "Album name",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "artist",
             ["req"] = true,
+            ["short"] = "Artist name",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "coverImage",
+            ["short"] = "URL to the album cover image",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "duration",
+            ["short"] = "Duration of the song in seconds",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the song",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "playedAt",
             ["req"] = true,
+            ["short"] = "Timestamp when the song was played",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "title",
             ["req"] = true,
+            ["short"] = "Title of the song",
             ["type"] = "`$STRING`",
           },
         },

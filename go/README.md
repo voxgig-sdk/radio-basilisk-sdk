@@ -6,7 +6,7 @@ The Golang SDK for the RadioBasilisk API — an entity-oriented client using sta
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Music(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,13 +260,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"album"` |  |
-| `"artist"` |  |
-| `"coverImage"` |  |
-| `"duration"` |  |
-| `"id"` |  |
-| `"playedAt"` |  |
-| `"title"` |  |
+| `"album"` | Album name |
+| `"artist"` | Artist name |
+| `"coverImage"` | URL to the album cover image |
+| `"duration"` | Duration of the song in seconds |
+| `"id"` | Unique identifier for the song |
+| `"playedAt"` | Timestamp when the song was played |
+| `"title"` | Title of the song |
 
 Operations: List.
 
@@ -291,13 +291,13 @@ Create an instance: `music := client.Music(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `artist` | `string` |  |
-| `coverImage` | `string` |  |
-| `duration` | `int` |  |
-| `id` | `string` |  |
-| `playedAt` | `string` |  |
-| `title` | `string` |  |
+| `album` | `string` | Album name |
+| `artist` | `string` | Artist name |
+| `coverImage` | `string` | URL to the album cover image |
+| `duration` | `int` | Duration of the song in seconds |
+| `id` | `string` | Unique identifier for the song |
+| `playedAt` | `string` | Timestamp when the song was played |
+| `title` | `string` | Title of the song |
 
 #### Example: List
 

@@ -237,13 +237,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `artist` |  |
-| `coverImage` |  |
-| `duration` |  |
-| `id` |  |
-| `playedAt` |  |
-| `title` |  |
+| `album` | Album name |
+| `artist` | Artist name |
+| `coverImage` | URL to the album cover image |
+| `duration` | Duration of the song in seconds |
+| `id` | Unique identifier for the song |
+| `playedAt` | Timestamp when the song was played |
+| `title` | Title of the song |
 
 Operations: List.
 
@@ -268,13 +268,13 @@ Create an instance: `music = client.Music`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `String` |  |
-| `artist` | `String` |  |
-| `coverImage` | `String` |  |
-| `duration` | `Integer` |  |
-| `id` | `String` |  |
-| `playedAt` | `String` |  |
-| `title` | `String` |  |
+| `album` | `String` | Album name |
+| `artist` | `String` | Artist name |
+| `coverImage` | `String` | URL to the album cover image |
+| `duration` | `Integer` | Duration of the song in seconds |
+| `id` | `String` | Unique identifier for the song |
+| `playedAt` | `String` | Timestamp when the song was played |
+| `title` | `String` | Title of the song |
 
 #### Example: List
 

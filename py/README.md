@@ -243,13 +243,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `artist` |  |
-| `coverImage` |  |
-| `duration` |  |
-| `id` |  |
-| `playedAt` |  |
-| `title` |  |
+| `album` | Album name |
+| `artist` | Artist name |
+| `coverImage` | URL to the album cover image |
+| `duration` | Duration of the song in seconds |
+| `id` | Unique identifier for the song |
+| `playedAt` | Timestamp when the song was played |
+| `title` | Title of the song |
 
 Operations: List.
 
@@ -274,13 +274,13 @@ Create an instance: `music = client.Music()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `str` |  |
-| `artist` | `str` |  |
-| `coverImage` | `str` |  |
-| `duration` | `int` |  |
-| `id` | `str` |  |
-| `playedAt` | `str` |  |
-| `title` | `str` |  |
+| `album` | `str` | Album name |
+| `artist` | `str` | Artist name |
+| `coverImage` | `str` | URL to the album cover image |
+| `duration` | `int` | Duration of the song in seconds |
+| `id` | `str` | Unique identifier for the song |
+| `playedAt` | `str` | Timestamp when the song was played |
+| `title` | `str` | Title of the song |
 
 #### Example: List
 

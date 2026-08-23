@@ -116,13 +116,13 @@ const music = client.Music()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `string` | No |  |
-| `artist` | `string` | Yes |  |
-| `coverImage` | `string` | No |  |
-| `duration` | `number` | No |  |
-| `id` | `string` | No |  |
-| `playedAt` | `string` | Yes |  |
-| `title` | `string` | Yes |  |
+| `album` | `string` | No | Album name |
+| `artist` | `string` | Yes | Artist name |
+| `coverImage` | `string` | No | URL to the album cover image |
+| `duration` | `number` | No | Duration of the song in seconds |
+| `id` | `string` | No | Unique identifier for the song |
+| `playedAt` | `string` | Yes | Timestamp when the song was played |
+| `title` | `string` | Yes | Title of the song |
 
 ### Operations
 
