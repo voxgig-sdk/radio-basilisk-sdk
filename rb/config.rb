@@ -28,6 +28,7 @@ module RadioBasiliskConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
