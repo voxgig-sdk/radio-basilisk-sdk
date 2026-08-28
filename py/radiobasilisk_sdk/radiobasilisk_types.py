@@ -30,10 +30,4 @@ class Music(MusicRequired, total=False):
 
 
 class MusicListMatch(TypedDict, total=False):
-    album: str
-    artist: str
-    coverImage: str
-    duration: int
-    id: str
-    playedAt: str
-    title: str
+    limit: int

@@ -27,12 +27,6 @@ class Music
 /** Request payload for Music#list. */
 class MusicListMatch
 {
-    public ?string $album = null;
-    public ?string $artist = null;
-    public ?string $coverImage = null;
-    public ?int $duration = null;
-    public ?string $id = null;
-    public ?string $playedAt = null;
-    public ?string $title = null;
+    public ?int $limit = null;
 }
 

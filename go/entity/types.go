@@ -25,13 +25,7 @@ type Music struct {
 
 // MusicListMatch is the typed request payload for Music.ListTyped.
 type MusicListMatch struct {
-	Album *string `json:"album,omitempty"`
-	Artist *string `json:"artist,omitempty"`
-	CoverImage *string `json:"coverImage,omitempty"`
-	Duration *int `json:"duration,omitempty"`
-	Id *string `json:"id,omitempty"`
-	PlayedAt *string `json:"playedAt,omitempty"`
-	Title *string `json:"title,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

@@ -43,34 +43,10 @@ Music = Struct.new(
 
 # Request payload for Music#list.
 #
-# @!attribute [rw] album
-#   @return [String, nil]
-#
-# @!attribute [rw] artist
-#   @return [String, nil]
-#
-# @!attribute [rw] coverImage
-#   @return [String, nil]
-#
-# @!attribute [rw] duration
+# @!attribute [rw] limit
 #   @return [Integer, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] playedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
 MusicListMatch = Struct.new(
-  :album,
-  :artist,
-  :coverImage,
-  :duration,
-  :id,
-  :playedAt,
-  :title,
+  :limit,
   keyword_init: true
 )
 

@@ -16,13 +16,7 @@
 ---@field title string
 
 ---@class MusicListMatch
----@field album? string
----@field artist? string
----@field coverImage? string
----@field duration? number
----@field id? string
----@field playedAt? string
----@field title? string
+---@field limit? number
 
 local M = {}
 

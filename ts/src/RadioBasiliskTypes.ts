@@ -16,12 +16,6 @@ export interface Music {
 }
 
 export interface MusicListMatch {
-  album?: string
-  artist?: string
-  coverImage?: string
-  duration?: number
-  id?: string
-  playedAt?: string
-  title?: string
+  limit?: number
 }
 
