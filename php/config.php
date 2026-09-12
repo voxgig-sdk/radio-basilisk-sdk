@@ -69,6 +69,7 @@ class RadioBasiliskConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'coverImage',
               'short' => 'URL to the album cover image',
               'type' => '`$STRING`',
@@ -84,6 +85,7 @@ class RadioBasiliskConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'playedAt',
               'req' => true,
               'short' => 'Timestamp when the song was played',
@@ -95,6 +97,10 @@ class RadioBasiliskConfig
               'short' => 'Title of the song',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'music',
           'op' => [
@@ -117,9 +123,13 @@ class RadioBasiliskConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/songs/recently-played',
-                  'parts' => [
-                    'songs',
-                    'recently-played',
+                  'segments' => [
+                    [
+                      'lit' => 'songs',
+                    ],
+                    [
+                      'lit' => 'recently-played',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -129,6 +139,10 @@ class RadioBasiliskConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.songs`',
+                  ],
+                  'parts' => [
+                    'songs',
+                    'recently-played',
                   ],
                 ],
               ],

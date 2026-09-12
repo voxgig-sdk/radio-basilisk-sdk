@@ -43,6 +43,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "coverImage",
             ["short"] = "URL to the album cover image",
             ["type"] = "`$STRING`",
@@ -58,6 +59,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "playedAt",
             ["req"] = true,
             ["short"] = "Timestamp when the song was played",
@@ -69,6 +71,10 @@ local function make_config()
             ["short"] = "Title of the song",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "music",
         ["op"] = {
@@ -91,9 +97,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/songs/recently-played",
-                ["parts"] = {
-                  "songs",
-                  "recently-played",
+                ["segments"] = {
+                  {
+                    ["lit"] = "songs",
+                  },
+                  {
+                    ["lit"] = "recently-played",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -103,6 +113,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.songs`",
+                },
+                ["parts"] = {
+                  "songs",
+                  "recently-played",
                 },
               },
             },

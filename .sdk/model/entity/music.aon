@@ -18,6 +18,7 @@ main: kit: entity: music: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "coverImage"
       req: false
       short: "URL to the album cover image"
@@ -36,6 +37,7 @@ main: kit: entity: music: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "playedAt"
       req: true
       short: "Timestamp when the song was played"
@@ -74,9 +76,13 @@ main: kit: entity: music: {
           }
           method: "GET"
           orig: "/songs/recently-played"
-          parts: [
-            "songs"
-            "recently-played"
+          segments: [
+            {
+              lit: "songs"
+            }
+            {
+              lit: "recently-played"
+            }
           ]
           select: {
             exist: [
