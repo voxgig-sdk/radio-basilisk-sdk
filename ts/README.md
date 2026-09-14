@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
+import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk-sdk'
 
 const client = new RadioBasiliskSDK()
 ```
@@ -415,7 +415,7 @@ radio-basilisk/
 Import the SDK from the package root:
 
 ```ts
-import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
+import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk-sdk'
 ```
 
 ### Entity state

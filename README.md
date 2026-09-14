@@ -105,7 +105,7 @@ local results, err = client:Music():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
+| TypeScript | `@voxgig-sdk/radio-basilisk-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
 | Python | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
 | PHP | `voxgig-sdk/radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/radio-basilisk-sdk/go` | `go get github.com/voxgig-sdk/radio-basilisk-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Music():list()
 ### TypeScript
 
 ```ts
-import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk'
+import { RadioBasiliskSDK } from '@voxgig-sdk/radio-basilisk-sdk'
 
 const client = new RadioBasiliskSDK()
 

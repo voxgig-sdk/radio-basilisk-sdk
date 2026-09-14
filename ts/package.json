@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/radio-basilisk",
+  "name": "@voxgig-sdk/radio-basilisk-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Radio Basilisk public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
