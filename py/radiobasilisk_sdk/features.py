@@ -1,12 +1,18 @@
 # RadioBasilisk SDK feature factory
 
 from radiobasilisk_sdk.feature.base_feature import RadioBasiliskBaseFeature
+from radiobasilisk_sdk.feature.ratelimit_feature import RadioBasiliskRatelimitFeature
+from radiobasilisk_sdk.feature.retry_feature import RadioBasiliskRetryFeature
 from radiobasilisk_sdk.feature.test_feature import RadioBasiliskTestFeature
+from radiobasilisk_sdk.feature.timeout_feature import RadioBasiliskTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: RadioBasiliskBaseFeature(),
+    "ratelimit": lambda: RadioBasiliskRatelimitFeature(),
+    "retry": lambda: RadioBasiliskRetryFeature(),
     "test": lambda: RadioBasiliskTestFeature(),
+    "timeout": lambda: RadioBasiliskTimeoutFeature(),
 }
 
 
