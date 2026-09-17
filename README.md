@@ -105,12 +105,12 @@ local results, err = client:Music():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/radio-basilisk-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
-| Python | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
-| PHP | `voxgig-sdk/radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
+| TypeScript | `@voxgig-sdk/radio-basilisk-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/tags) |
+| Python | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/tags) |
+| PHP | `voxgig-sdk/radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/radio-basilisk-sdk/go` | `go get github.com/voxgig-sdk/radio-basilisk-sdk/go@latest` |
-| Ruby | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
-| Lua | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/releases) |
+| Ruby | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/tags) |
+| Lua | `voxgig-sdk-radio-basilisk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/radio-basilisk-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/radio-basilisk-sdk/go-cli` | `go install github.com/voxgig-sdk/radio-basilisk-sdk/go-cli/cmd/radio-basilisk@latest` |
 | Go MCP server | `github.com/voxgig-sdk/radio-basilisk-sdk/go-mcp` | `go get github.com/voxgig-sdk/radio-basilisk-sdk/go-mcp@latest` |
 
