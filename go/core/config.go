@@ -91,43 +91,50 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "album",
-						"short": "Album name",
+						"title": "Album",
 						"type": "`$STRING`",
+						"short": "Album name",
 					},
 					map[string]any{
 						"name": "artist",
+						"title": "Artist",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Artist name",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "coverImage",
-						"short": "URL to the album cover image",
+						"title": "Cover Image",
 						"type": "`$STRING`",
+						"short": "URL to the album cover image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "duration",
-						"short": "Duration of the song in seconds",
+						"title": "Duration",
 						"type": "`$INTEGER`",
+						"short": "Duration of the song in seconds",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the song",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the song",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "playedAt",
+						"title": "Played At",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Timestamp when the song was played",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "title",
+						"title": "Title",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Title of the song",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -141,17 +148,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/songs/recently-played",
@@ -163,18 +159,30 @@ func MakeConfig() map[string]any {
 										"lit": "recently-played",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"limit",
-									},
+								"parts": []any{
+									"songs",
+									"recently-played",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.songs`",
 								},
-								"parts": []any{
-									"songs",
-									"recently-played",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"limit",
+									},
 								},
 							},
 						},

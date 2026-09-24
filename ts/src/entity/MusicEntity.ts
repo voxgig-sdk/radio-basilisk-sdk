@@ -19,7 +19,6 @@ import type {
   MusicListMatch,
 } from '../RadioBasiliskTypes'
 
-// TODO: needs Entity superclass
 class MusicEntity extends RadioBasiliskEntityBase<Music> {
 
   constructor(client: RadioBasiliskSDK, entopts: any) {

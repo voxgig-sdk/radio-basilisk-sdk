@@ -24,65 +24,138 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "music": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "album",
-              "req": false,
-              "short": "Album name",
-              "type": "`$STRING`"
+          "fields": {
+            "album": {
+              "a": true,
+              "h": "Album",
+              "n": "album",
+              "r": false,
+              "sh": "Album name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artist",
-              "req": true,
-              "short": "Artist name",
-              "type": "`$STRING`"
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": true,
+              "sh": "Artist name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "coverImage",
-              "req": false,
-              "short": "URL to the album cover image",
-              "type": "`$STRING`"
+            "coverImage": {
+              "a": true,
+              "fo": "uri",
+              "h": "Cover Image",
+              "n": "coverImage",
+              "r": false,
+              "sh": "URL to the album cover image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "duration",
-              "req": false,
-              "short": "Duration of the song in seconds",
-              "type": "`$INTEGER`"
+            "duration": {
+              "a": true,
+              "h": "Duration",
+              "n": "duration",
+              "r": false,
+              "sh": "Duration of the song in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the song",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "playedAt",
-              "req": true,
-              "short": "Timestamp when the song was played",
-              "type": "`$STRING`"
+            "playedAt": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Played At",
+              "n": "playedAt",
+              "r": true,
+              "sh": "Timestamp when the song was played",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": true,
-              "short": "Title of the song",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": true,
+              "sh": "Title of the song",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -94,30 +167,35 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /songs/recently-played",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /songs/recently-played",
-                    "json": "{\"operationId\":\"getRecentlyPlayedSongs\",\"parameters\":[{\"description\":\"Number of songs to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":50,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"recentSongs\":{\"value\":{\"count\":1,\"songs\":[{\"album\":\"Example Album\",\"artist\":\"Example Artist\",\"coverImage\":\"https://example.com/cover.jpg\",\"duration\":210,\"id\":\"12345\",\"playedAt\":\"2026-01-15T10:30:00Z\",\"title\":\"Example Song\"}],\"timestamp\":\"2026-01-15T10:35:00Z\"}}},\"schema\":{\"properties\":{\"count\":{\"description\":\"Number of songs returned\",\"type\":\"integer\"},\"songs\":{\"items\":{\"properties\":{\"album\":{\"description\":\"Album name\",\"type\":\"string\"},\"artist\":{\"description\":\"Artist name\",\"type\":\"string\"},\"coverImage\":{\"description\":\"URL to the album cover image\",\"format\":\"uri\",\"type\":\"string\"},\"duration\":{\"description\":\"Duration of the song in seconds\",\"type\":\"integer\"},\"id\":{\"description\":\"Unique identifier for the song\",\"type\":\"string\"},\"playedAt\":{\"description\":\"Timestamp when the song was played\",\"format\":\"date-time\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the song\",\"type\":\"string\"}},\"required\":[\"title\",\"artist\",\"playedAt\"],\"type\":\"object\"},\"type\":\"array\"},\"timestamp\":{\"description\":\"Timestamp of the response\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the error\",\"format\":\"date-time\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the error\",\"format\":\"date-time\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/songs/recently-played",
+                  "q": {
+                    "exist": [
+                      "limit"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/songs/recently-played",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "songs"
                     },
@@ -125,12 +203,7 @@
                       "lit": "recently-played"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "limit"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.songs`"
                   }
@@ -559,13 +632,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

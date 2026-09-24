@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MusicEntity = void 0;
 const RadioBasiliskEntityBase_1 = require("../RadioBasiliskEntityBase");
-// TODO: needs Entity superclass
 class MusicEntity extends RadioBasiliskEntityBase_1.RadioBasiliskEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

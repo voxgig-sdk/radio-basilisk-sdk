@@ -99,43 +99,50 @@ module RadioBasiliskConfig
           "fields" => [
             {
               "name" => "album",
-              "short" => "Album name",
+              "title" => "Album",
               "type" => "`$STRING`",
+              "short" => "Album name",
             },
             {
               "name" => "artist",
+              "title" => "Artist",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Artist name",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "uri",
               "name" => "coverImage",
-              "short" => "URL to the album cover image",
+              "title" => "Cover Image",
               "type" => "`$STRING`",
+              "short" => "URL to the album cover image",
+              "format" => "uri",
             },
             {
               "name" => "duration",
-              "short" => "Duration of the song in seconds",
+              "title" => "Duration",
               "type" => "`$INTEGER`",
+              "short" => "Duration of the song in seconds",
             },
             {
               "name" => "id",
-              "short" => "Unique identifier for the song",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique identifier for the song",
             },
             {
-              "format" => "date-time",
               "name" => "playedAt",
+              "title" => "Played At",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Timestamp when the song was played",
-              "type" => "`$STRING`",
+              "format" => "date-time",
             },
             {
               "name" => "title",
+              "title" => "Title",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Title of the song",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -149,17 +156,6 @@ module RadioBasiliskConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/songs/recently-played",
@@ -171,19 +167,31 @@ module RadioBasiliskConfig
                       "lit" => "recently-played",
                     },
                   ],
+                  "parts" => [
+                    "songs",
+                    "recently-played",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.songs`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "limit",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.songs`",
-                  },
-                  "parts" => [
-                    "songs",
-                    "recently-played",
-                  ],
                 },
               ],
             },
