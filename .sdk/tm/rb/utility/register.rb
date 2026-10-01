@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 RadioBasiliskUtility.registrar = ->(u) {
   u.clean = RadioBasiliskUtilities::Clean
+  u.clean_add = RadioBasiliskUtilities::CleanAdd
+  u.clean_explain = RadioBasiliskUtilities::CleanExplain
   u.done = RadioBasiliskUtilities::Done
   u.make_error = RadioBasiliskUtilities::MakeError
   u.feature_add = RadioBasiliskUtilities::FeatureAdd

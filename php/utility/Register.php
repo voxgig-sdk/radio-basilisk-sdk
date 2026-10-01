@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 RadioBasiliskUtility::setRegistrar(function (RadioBasiliskUtility $u): void {
     $u->clean = [RadioBasiliskClean::class, 'call'];
+    $u->clean_add = [RadioBasiliskClean::class, 'add'];
+    $u->clean_explain = [RadioBasiliskDone::class, 'clean_explain'];
     $u->done = [RadioBasiliskDone::class, 'call'];
     $u->make_error = [RadioBasiliskMakeError::class, 'call'];
     $u->feature_add = [RadioBasiliskFeatureAdd::class, 'call'];
