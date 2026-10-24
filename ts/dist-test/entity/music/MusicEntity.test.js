@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Music();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('music hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.RadioBasiliskSDK.test(offline).Music().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.RadioBasiliskSDK.test(offline).Music()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.RadioBasiliskSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Music().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.RadioBasiliskSDK.test().Music().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.RadioBasiliskSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Music().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Music().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.RadioBasiliskSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Music().list({ "limit": "x" }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.RADIO_BASILISK_TEST_LIVE;
         for (const op of ['list']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "album": { "a": true, "h": "Album", "n": "album", "r": false, "sh": "Album name", "t": "`$STRING`", "key$": "album", "index$": 0 }, "artist": { "a": true, "h": "Artist", "n": "artist", "r": true, "sh": "Artist name", "t": "`$STRING`", "key$": "artist", "index$": 1 }, "coverImage": { "a": true, "fo": "uri", "h": "Cover Image", "n": "coverImage", "r": false, "sh": "URL to the album cover image", "t": "`$STRING`", "key$": "coverImage", "index$": 2 }, "duration": { "a": true, "h": "Duration", "n": "duration", "r": false, "sh": "Duration of the song in seconds", "t": "`$INTEGER`", "key$": "duration", "index$": 3 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the song", "t": "`$STRING`", "key$": "id", "index$": 4 }, "playedAt": { "a": true, "fo": "date-time", "h": "Played At", "n": "playedAt", "r": true, "sh": "Timestamp when the song was played", "t": "`$STRING`", "key$": "playedAt", "index$": 5 }, "title": { "a": true, "h": "Title", "n": "title", "r": true, "sh": "Title of the song", "t": "`$STRING`", "key$": "title", "index$": 6 } }, "id": { "field": "id", "name": "id" }, "name": "music", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /songs/recently-played", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 10, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/songs/recently-played", "q": { "exist": ["limit"] }, "r": {}, "s": [{ "lit": "songs" }, { "lit": "recently-played" }], "t": { "req": "`reqdata`", "res": "`body.songs`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "music", "name__orig": "music", "Name": "Music", "name_": "music", "name-": "music", "NAME": "MUSIC", "index$": 0 }, { "active": true, "entity": "music", "key$": "BasicMusicFlow", "kind": "basic", "name": "BasicMusicFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "music_ref01" } }], "index$": 0 }] }, 'Music', { "GET /songs/recently-played": { "protocol": "http", "parameters": [{ "name": "limit", "in": "query", "description": "Number of songs to return", "required": false, "schema": { "type": "integer", "default": 10, "minimum": 1, "maximum": 50 }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "album": { "a": true, "h": "Album", "n": "album", "r": false, "sh": "Album name", "t": "`$STRING`", "key$": "album", "index$": 0 }, "artist": { "a": true, "h": "Artist", "n": "artist", "r": true, "sh": "Artist name", "t": "`$STRING`", "key$": "artist", "index$": 1 }, "coverImage": { "a": true, "fo": "uri", "h": "Cover Image", "n": "coverImage", "r": false, "sh": "URL to the album cover image", "t": "`$STRING`", "key$": "coverImage", "index$": 2 }, "duration": { "a": true, "h": "Duration", "n": "duration", "r": false, "sh": "Duration of the song in seconds", "t": "`$INTEGER`", "key$": "duration", "index$": 3 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the song", "t": "`$STRING`", "key$": "id", "index$": 4 }, "playedAt": { "a": true, "fo": "date-time", "h": "Played At", "n": "playedAt", "r": true, "sh": "Timestamp when the song was played", "t": "`$STRING`", "key$": "playedAt", "index$": 5 }, "title": { "a": true, "h": "Title", "n": "title", "r": true, "sh": "Title of the song", "t": "`$STRING`", "key$": "title", "index$": 6 } }, "id": { "field": "id", "name": "id" }, "name": "music", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /songs/recently-played", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 10, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/songs/recently-played", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "songs" }, { "lit": "recently-played" }], "t": { "req": "`reqdata`", "res": "`body.songs`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "music", "name__orig": "music", "Name": "Music", "name_": "music", "name-": "music", "NAME": "MUSIC", "index$": 0 }, { "active": true, "entity": "music", "key$": "BasicMusicFlow", "kind": "basic", "name": "BasicMusicFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "music_ref01" } }], "index$": 0 }] }, 'Music', { "GET /songs/recently-played": { "protocol": "http", "parameters": [{ "name": "limit", "in": "query", "description": "Number of songs to return", "required": false, "schema": { "type": "integer", "default": 10, "minimum": 1, "maximum": 50 }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -75,6 +122,11 @@ const utility_1 = require("../../utility");
         const music_ref01_list = (await music_ref01_ent.list(music_ref01_match)).map((e) => e.data());
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

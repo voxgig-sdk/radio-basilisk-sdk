@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Album name",
+      "Artist name",
+      "Duration of the song in seconds",
+      "Production server",
+      "Radio Basilisk provides daily information and entertainment to 100,000 listeners in the Basel region. This API shows the last played songs on Radio Basilisk.",
+      "Successful response",
+      "URL to the album cover image",
+      "Unique identifier for the song"
+    ]
+  }
 }

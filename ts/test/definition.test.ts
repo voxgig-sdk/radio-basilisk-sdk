@@ -16,11 +16,21 @@ const PLAN: any[] = [
     "path": "/songs/recently-played",
     "args": [],
     "select": {
-      "limit": "v1"
+      "limit": 10
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit"
+    ],
+    "queryArgs": [
+      {
+        "name": "limit",
+        "wire": "limit"
+      }
     ],
     "auth": null,
     "status": 200,

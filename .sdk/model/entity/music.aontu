@@ -88,10 +88,9 @@ main: kit: entity: music: {
           }
           m: "GET"
           o: "/songs/recently-played"
-          q: {
-            exist: [
-              "limit"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
